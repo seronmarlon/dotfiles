@@ -1,0 +1,56 @@
+#!/bin/bash
+
+cd "$(dirname "${BASH_SOURCE}")"
+
+info () {
+  printf "\e[0m$1\n"
+}
+
+user () {
+  printf "\r  [ \033[0;33m?\033[0m ] $1 "
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  exit
+}
+
+install_dotfiles () {
+  info 'Installing dotfiles'
+
+  files=(bashrc bash_profile)
+
+  for file in ${files[*]}
+  do
+    cp $file $HOME/.$file ; success "copying ${file}"
+  done
+
+  success 'Installing dotfiles'
+}
+
+setup_gitconfig () {
+  info 'Configuring git'
+
+  user 'What is your name?'
+  read name
+
+  user 'What is your email?'
+  read email
+
+  `git config --global user.name "$name"`
+  `git config --global user.email "$email"`
+  `git config --global include.path "$HOME/.dotfiles/git/gitconfig"`
+  `git config --global core.excludesfile "$HOME/.dotfiles/git/gitignore"`
+
+  success 'name and email configured'
+}
+
+echo ''
+
+install_dotfiles
+setup_gitconfig
