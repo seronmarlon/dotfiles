@@ -11,6 +11,8 @@ alias k9="killall -9"
 
 # Misc
 alias tlsys="tail -f /var/log/system.log"
+alias s="subl"
+alias a="atom"
 
 # Tools
 alias g="git"
