@@ -12,3 +12,7 @@ Thumbs.db
 # Vagrant files #
 ######################
 .vagrant
+
+# Ruby files #
+######################
+.ruby-version
