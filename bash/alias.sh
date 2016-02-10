@@ -20,7 +20,8 @@ alias vg="vagrant"
 
 # Ruby
 alias r="rails"
-alias rs="rails s -b 0.0.0.0"
+alias rs="rails server -b 0.0.0.0"
+alias rc="rails console"
 alias rk="rake"
 alias bi="bundle install"
 
