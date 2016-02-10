@@ -4,6 +4,7 @@
         branch = auto
         ui     = true
 [alias]
+        p   = push
         st  = status -s
         sb  = status -sb
         pu  = pull --rebase
