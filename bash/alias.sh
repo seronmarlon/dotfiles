@@ -9,13 +9,10 @@ alias tu="top -o cpu"
 alias tm="top -o vsize"
 alias k9="killall -9"
 
-# Misc
-alias tlsys="tail -f /var/log/system.log"
+# Tools
 alias s="subl"
 alias a="atom"
 alias c="code"
-
-# Tools
 alias g="git"
 alias vg="vagrant"
 
@@ -25,6 +22,9 @@ alias rs="rails server -b 0.0.0.0"
 alias rc="rails console"
 alias rk="rake"
 alias bi="bundle install"
+
+# Misc
+alias tlsys="tail -f /var/log/system.log"
 
 # Functions
 function cdd(){
