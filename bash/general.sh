@@ -2,7 +2,7 @@ export LC_CTYPE=en_US.UTF-8
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/bin"
 
-export EDITOR="subl -n -w"
+export EDITOR="code --wait"
 
 export HISTFILE="$HOME/.bash_history"
 export HISTCONTROL=ignoreboth:erasedups

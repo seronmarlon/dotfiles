@@ -10,11 +10,8 @@ alias tm="top -o vsize"
 alias k9="killall -9"
 
 # Tools
-alias s="subl"
-alias a="atom"
 alias c="code"
 alias g="git"
-alias vg="vagrant"
 
 # Ruby
 alias r="rails"
