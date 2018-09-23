@@ -37,10 +37,14 @@ function tarx(){
   tar -xzvf $1 $2
 }
 
-function list_servers(){
+function lservers(){
   cat ~/.ssh/config
 }
 
 function gh(){
   history | grep $1
+}
+
+function cgems(){
+  for x in `gem list --no-versions`; do gem uninstall $x -a -x -I; done
 }
