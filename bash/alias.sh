@@ -23,28 +23,3 @@ alias bi="bundle install"
 
 # Misc
 alias tlsys="tail -f /var/log/system.log"
-
-# Functions
-function cdd(){
-  cd ~/Developments/$*
-}
-
-function tarc(){
-  tar -czvf $1 $2
-}
-
-function tarx(){
-  tar -xzvf $1 $2
-}
-
-function lservers(){
-  cat ~/.ssh/config
-}
-
-function gh(){
-  history | grep $1
-}
-
-function cgems(){
-  for x in `gem list --no-versions`; do gem uninstall $x -a -x -I; done
-}
