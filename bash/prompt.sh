@@ -9,7 +9,7 @@ __my_prompt () {
 
   local NO_COLOR="\[\e[0m\]"
 
-  local INFO_SYMBOL="\342\201\231"
+  local INFO_SYMBOL="\342\226\262"
   local PROMPT_SYMBOL="\342\235\257"
   local MAGENTA="\e[38;5;141m"
   local DARK_BLUE="\e[38;5;75m"
