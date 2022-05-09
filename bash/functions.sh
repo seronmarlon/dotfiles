@@ -19,11 +19,16 @@ function lservers(){
 }
 
 # grep bash history
-function gh(){
+function gbh(){
   history | grep $1
 }
 
 # clear gem file
 function cgems(){
   for x in `gem list --no-versions`; do gem uninstall $x -a -x -I; done
+}
+
+# fast commit
+function fc(){
+  git add . && git commit -am "$(date +%s)"
 }
