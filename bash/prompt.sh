@@ -3,8 +3,6 @@ __my_prompt () {
   history -c
   history -r
 
-  local RUBY_VERSION=`ruby -e "puts RUBY_VERSION"`
-
   local GIT_BRANCH=`git branch 2> /dev/null | grep \* | sed 's/* //'`
 
   local NO_COLOR="\[\e[0m\]"
