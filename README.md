@@ -4,11 +4,10 @@ This project contains files to setup my system. It's not so complete as [oh-my-z
 
 ## Installation ##
 
-Clone into your home directory
+Clone into your home directory:
 ```shell
-  git clone https://github.com/seronmarlon/dotfiles.git .dotfiles
+  git clone git@github.com:seronmarlon/dotfiles.gitt .dotfiles
 ```
-
 
 Inside the project directory run the install script:
 
