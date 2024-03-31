@@ -1,5 +1,11 @@
+source ~/.config/dotfiles/bash/general.sh
+source ~/.config/dotfiles/bash/prompt.sh
+source ~/.config/dotfiles/bash/alias.sh
+source ~/.config/dotfiles/bash/functions.sh
+source ~/.config/dotfiles/bash/asdf.sh
 source $HOME/.dotfiles/bash/general.sh
 source $HOME/.dotfiles/bash/prompt.sh
 source $HOME/.dotfiles/bash/alias.sh
 source $HOME/.dotfiles/bash/functions.sh
 source $HOME/.dotfiles/bash/asdf.sh
+source ~/.config/dotfiles/bash/fzf.sh
