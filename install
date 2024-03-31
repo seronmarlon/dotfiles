@@ -20,21 +20,25 @@ fail () {
   exit
 }
 
-install_dotfiles () {
-  info 'Installing dotfiles'
+setup_dotfiles () {
+  info 'Setup dotfiles'
 
-  files=(bashrc bash_profile)
+  ln -s ~/.config/dotfiles/bashrc ~/.bash_profile
+  ln -s ~/.config/dotfiles/bashrc ~/.bashrc
 
-  for file in ${files[*]}
-  do
-    cp $file $HOME/.$file ; success "copying ${file}"
-  done
-
-  success 'Installing dotfiles'
+  success 'Setup dotfiles'
 }
 
-setup_gitconfig () {
-  info 'Configuring git'
+setup_tmux () {
+  info 'Setup tmux files'
+
+  ln -s ~/.config/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
+  success 'Setup tmux'
+}
+
+setup_git () {
+  info 'Setup git'
 
   user 'What is your name?'
   read name
@@ -44,13 +48,14 @@ setup_gitconfig () {
 
   `git config --global user.name "$name"`
   `git config --global user.email "$email"`
-  `git config --global include.path "$HOME/.dotfiles/git/gitconfig"`
-  `git config --global core.excludesfile "$HOME/.dotfiles/git/gitignore"`
+  `git config --global include.path "~/.config/dotfiles/git/gitconfig"`
+  `git config --global core.excludesfile "~/.config/dotfiles/git/gitignore"`
 
-  success 'name and email configured'
+  success 'Setup git'
 }
 
 echo ''
 
-install_dotfiles
-setup_gitconfig
+setup_dotfiles
+setup_tmux
+setup_git
