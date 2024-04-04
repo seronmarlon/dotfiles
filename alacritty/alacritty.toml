@@ -1,0 +1,15 @@
+import = ["~/.config/alacritty/themes/github_dark_high_contrast.toml"]
+
+[shell]
+
+[window]
+startup_mode = "Fullscreen"
+dynamic_title = true
+decorations_theme_variant = "Dark"
+
+[font]
+size = 16
+normal = { family = "Roboto Mono", style = "Regular" }
+
+[colors]
+primary.background = "#000000"
