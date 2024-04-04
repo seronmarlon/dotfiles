@@ -27,3 +27,9 @@ function gh(){
 function cgems(){
   for x in `gem list --no-versions`; do gem uninstall $x -a -x -I; done
 }
+
+function fc() {
+  git add -A
+
+  git commit -m "$(date "+%Y-%m-%d %H:%M:%S")"
+}
