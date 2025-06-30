@@ -13,13 +13,7 @@ alias k9="killall -9"
 alias c="code"
 alias g="git"
 alias a="asdf"
-
-# Ruby
-alias r="rails"
-alias rs="rails server -b 0.0.0.0"
-alias rc="rails console"
-alias rk="rake"
-alias bi="bundle install"
+alias n="nvim"
 
 # Misc
 alias tlsys="tail -f /var/log/system.log"

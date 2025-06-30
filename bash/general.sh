@@ -1,8 +1,8 @@
 export LC_CTYPE=en_US.UTF-8
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/bin"
+export PATH="$PATH:~/.local/bin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/bin:~/.config/dotfiles/scripts"
 
-export EDITOR="code --wait"
+export EDITOR="nvim --wait"
 
 export HISTFILE="$HOME/.bash_history"
 export HISTCONTROL=ignoreboth:erasedups

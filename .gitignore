@@ -1,0 +1,25 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary backup files
+*~
+*.swp
+*.swo
+*.tmp
+
+# Ignore history/sensitive files
+.bash_history
+
+# Ignore specific directories
+.cache/
+.local/
+.trash/
+.trash-*/
+
+# Ignore key files
+*.pem
+*.key
+*.crt
+*.gpg
+*.asc
