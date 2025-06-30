@@ -10,7 +10,6 @@ alias tm="top -o vsize"
 alias k9="killall -9"
 
 # Tools
-alias c="code"
 alias g="git"
 alias a="asdf"
 alias n="nvim"
