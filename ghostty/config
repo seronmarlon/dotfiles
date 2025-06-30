@@ -1,0 +1,4 @@
+background = black
+font-size = 16
+font-family = "Roboto Mono"
+macos-non-native-fullscreen = true

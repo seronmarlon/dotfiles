@@ -1,0 +1,35 @@
+[core]
+  excludesFile = ~/.config/git/gitignore
+[color]
+  diff   = auto
+  status = auto
+  branch = auto
+  ui     = true
+[alias]
+  p   = push
+  st  = status -s
+  sb  = status -sb
+  pu  = pull --rebase
+  a   = add
+  aa  = add -u
+  ci  = commit
+  cif = commit -am
+  co  = checkout
+  cob = checkout -b
+  b   = branch
+  m   = merge --no-ff
+  who = shortlog -s --
+  fl  = log -p
+  lg  = log --oneline --decorate --all --graph
+  dw  = diff --word-diff
+  sh  = !git-sh
+[help]
+  autocorrect = 1
+[branch]
+  autosetuprebase = always
+[push]
+  default = simple
+[pull]
+  rebase = true
+[rerere]
+  enabled = true

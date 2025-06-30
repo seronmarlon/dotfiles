@@ -2,60 +2,55 @@
 
 cd "$(dirname "${BASH_SOURCE}")"
 
-info () {
-  printf "\e[0m$1\n"
+DOTFILES="${HOME}/.dotfiles"
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+info()    { printf "\e[0m$1\n"; }
+user()    { printf "\r  [ \033[0;33m?\033[0m ] $1 "; }
+success() { printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"; }
+warn()    { printf "\r\033[2K  [ \033[0;33mWARN\033[0m ] $1\n"; }
+error()   { printf "\r\033[2K  [ \033[0;31mERROR\033[0m ] $1\n"; }
+fail()    { printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"; echo ''; exit 1; }
+
+create_symlink() {
+  local src=$1 dst=$2 label=$3
+  if [ -e "$dst" ] || [ -L "$dst" ]; then
+    warn "$label exists, skipping"
+    return
+  fi
+  if out=$(ln -s "$src" "$dst" 2>&1); then
+    success "$label"
+  else
+    error "$label failed: $out"
+  fi
 }
 
-user () {
-  printf "\r  [ \033[0;33m?\033[0m ] $1 "
+check_directory() {
+  [ ! -d "$DOTFILES" ] && fail "dotfiles cannot be found at $DOTFILES"
+  [ ! -d "$XDG_CONFIG_HOME" ] && fail "XDG_CONFIG_HOME cannot be found at $XDG_CONFIG_HOME"
 }
 
-success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+setup_dotfiles() {
+  info 'Setting up dotfiles'
+
+  create_symlink "$DOTFILES/bashrc"        "$HOME/.bashrc"            'bashrc'
+  create_symlink "$DOTFILES/bashrc"        "$HOME/.bash_profile"      'bash_profile'
+  create_symlink "$DOTFILES/git"           "$XDG_CONFIG_HOME/git"     'git'
+  create_symlink "$DOTFILES/ghostty"       "$XDG_CONFIG_HOME/ghostty" 'ghostty'
 }
 
-fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
-  exit
+setup_git() {
+  info 'Setting up Git config'
+
+  user 'What is your name?'; read -r name
+  user 'What is your email?'; read -r email
+
+  git config --global user.name "$name"
+  git config --global user.email "$email"
+
+  success 'Git config set'
 }
 
-setup_dotfiles () {
-  info 'Setup dotfiles'
-
-  ln -s ~/.config/dotfiles/bashrc ~/.bash_profile
-  ln -s ~/.config/dotfiles/bashrc ~/.bashrc
-
-  success 'Setup dotfiles'
-}
-
-setup_tmux () {
-  info 'Setup tmux files'
-
-  ln -s ~/.config/dotfiles/tmux/tmux.conf ~/.tmux.conf
-
-  success 'Setup tmux'
-}
-
-setup_git () {
-  info 'Setup git'
-
-  user 'What is your name?'
-  read name
-
-  user 'What is your email?'
-  read email
-
-  `git config --global user.name "$name"`
-  `git config --global user.email "$email"`
-  `git config --global include.path "~/.config/dotfiles/git/gitconfig"`
-  `git config --global core.excludesfile "~/.config/dotfiles/git/gitignore"`
-
-  success 'Setup git'
-}
-
-echo ''
-
+check_directory
 setup_dotfiles
-setup_tmux
 setup_git
